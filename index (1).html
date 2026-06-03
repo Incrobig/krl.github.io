@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO HEADING ── */
+    .hero-heading {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0.85;
+      padding-top: 16px;
+    }
+
+    .hero-heading span {
+      display: block;
+      font-size: clamp(80px, 18vw, 260px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── MAIN BLOCK ── */
+    .main-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding: 40px 48px 80px;
+      align-items: start;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-wrap {
+      position: relative;
+    }
+
+    .swiper {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #1e1e1e;
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .swiper-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #efefef;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* frame around gallery */
+    .gallery-frame {
+      border: 6px solid #2e2e2e;
+      position: relative;
+    }
+
+    /* slide counter */
+    .slide-counter {
+      position: absolute;
+      bottom: -28px;
+      right: 0;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    /* nav arrows */
+    .gallery-nav {
+      display: flex;
+      gap: 8px;
+      margin-top: 40px;
+    }
+
+    .nav-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* dots */
+    .gallery-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 40px;
+      margin-left: 12px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .dot.active {
+      background: #fff;
+      transform: scale(1.4);
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── TEXT BLOCK ── */
+    .text-block {
+      padding-top: 16px;
+    }
+
+    .text-block p {
+      font-size: clamp(14px, 1.2vw, 18px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+    }
+
+    .text-block p strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .main-block {
+        grid-template-columns: 1fr;
+        padding: 24px 20px 60px;
+        gap: 40px;
+      }
+      .text-block { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-heading">
+    <span>DESIGN</span>
+  </div>
+
+  <div class="main-block">
+
+    <!-- GALLERY -->
+    <div class="gallery-wrap">
+      <div class="gallery-frame">
+        <div class="swiper" id="gallery">
+          <div class="swiper-wrapper" id="slides">
+
+            <!-- Слайд 1 — замени src на свои картинки -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37297-12.png" alt="Проект 1">
+            </div>
+
+            <!-- Слайд 2 -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37298-13.png" alt="Проект 2">
+            </div>
+
+            <!-- Слайд 3 -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37286-14.png" alt="Проект 3">
+            </div>
+
+            <!-- Слайд 4 -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37288-15.png" alt="Проект 4">
+            </div>
+
+            <!-- Слайд 5 -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37289-16.png" alt="Проект 5">
+            </div>
+
+            <!-- Слайд 6 -->
+            <div class="swiper-slide">
+              <img src="images/rectangle-37290-17.png" alt="Проект 6">
+            </div>
+
+          </div>
+        </div>
+        <div class="slide-counter"><span id="current">1</span> / <span id="total">6</span></div>
+      </div>
+
+      <div class="gallery-controls">
+        <div class="gallery-nav">
+          <button class="nav-btn" id="prev" aria-label="Назад">←</button>
+          <button class="nav-btn" id="next" aria-label="Вперёд">→</button>
+        </div>
+        <div class="gallery-dots" id="dots"></div>
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div class="text-block">
+      <p>
+        <strong>Шесть лет</strong> я делаю дизайн для малого бизнеса
+        и стартапов — айдентику, интерфейсы, графику.
+        Работаю в Figma, Illustrator, Photoshop и After
+        Effects, но инструмент всегда вторичен.
+        Главное — понять, кому и что ты хочешь сказать.
+        Поэтому каждый проект начинается не с макета,
+        а с разговора: кто твой клиент, чего он ждёт,
+        как выглядят конкуренты и чем ты от них
+        отличаешься. <strong>Стиль</strong> подбираю под задачу —
+        не навязываю свой почерк там, где он не нужен.
+        В итоге получается дизайн, который не просто
+        выглядит хорошо, а реально <strong>работает</strong>: бренд,
+        которому верят, интерфейс, в котором
+        не теряются, графика, которую не забывают.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const dotsContainer = document.getElementById('dots');
+    const currentEl = document.getElementById('current');
+    const totalEl = document.getElementById('total');
+    const slideCount = slides.children.length;
+    let current = 0;
+
+    totalEl.textContent = slideCount;
+
+    // create dots
+    for (let i = 0; i < slideCount; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(d);
+    }
+
+    function goTo(n) {
+      current = (n + slideCount) % slideCount;
+      slides.style.transform = `translateX(-${current * 100}%)`;
+      currentEl.textContent = current + 1;
+      document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+
+    // keyboard
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // touch swipe
+    let startX = 0;
+    slides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    slides.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+  </script>
+
+</body>
+</html>
